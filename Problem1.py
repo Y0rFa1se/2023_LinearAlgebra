@@ -24,7 +24,7 @@ A2 = Matrix([[_ ** 2, _, 1] for _ in selected2.column(0)])
 b2 = Vector(selected2.column(1))
 x2 = (A2.transpose().mat_mul(A2)).inverse().mat_mul(A2.transpose()).vector_mul(b2)
 graph_y2 = (graph_x ** 2) * x2[0] + graph_x * x2[1] + Vector([x2[2] for i in range(len(graph_x))])
-y2 = Vector([(_ ** 2) * x[0] + _ * x[1] + x[2] for _ in selected2.column(0)])
+y2 = Vector([(_ ** 2) * x2[0] + _ * x2[1] + x2[2] for _ in selected2.column(0)])
 
 print(f"Error of Graph 1: {squared_error(y, selected.column(1))}")
 print(f"Error of Graph 2: {squared_error(y2, selected2.column(1))}")
